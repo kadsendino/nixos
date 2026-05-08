@@ -58,7 +58,6 @@
     description = "Maximilian";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	chromium
     ];
   };
 
@@ -81,6 +80,8 @@
   kitty
   fish
   git
+  chromium
+  firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
