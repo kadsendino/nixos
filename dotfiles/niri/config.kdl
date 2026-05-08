@@ -281,7 +281,7 @@ layout {
 // spawn-sh-at-startup "swaybg -m fill -i .wallpaper/kurzgesagt-4k-wallpapers-3840x2160-v0-thrpw4zmouhb1.webp"
 // spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "env" "BRIGHTNESSCTL_DEVICE=amdgpu_bl1" "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia-shell"
 // spawn-at-startup "ollama" "serve"
 // spawn-sh-at-startup "~/.config/niri/volume.sh"
 
@@ -377,7 +377,7 @@ window-rule {
 switch-events {
     // lid-open { spawn "swaylock" "--image" "/home/maximilian/.wallpaper/kurzgesagt.jpg"; }
     // lid-open { spawn "notify-send" "The laptop lid is open!"; }
-    lid-close { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    lid-close { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 }
 
 binds {
@@ -398,10 +398,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space hotkey-overlay-title="Run an Application: launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+Y hotkey-overlay-title="Run an Application: yazi" { spawn "kitty" "--class" "yazi" "--title" "'Yazi'" "yazi"; }
-    Super+L hotkey-overlay-title="Lock the Screen: lock" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    Super+P hotkey-overlay-title="Change Wallpaper: random" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "random"; }
+    Super+L hotkey-overlay-title="Lock the Screen: lock" { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Super+P hotkey-overlay-title="Change Wallpaper: random" { spawn "noctalia-shell" "ipc" "call" "wallpaper" "random"; }
 
     Mod+N { spawn "nemo"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -646,7 +646,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+Q { quit; }
-    MOd+Q {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle";}
+    MOd+Q {spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle";}
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
