@@ -1,5 +1,5 @@
 
-{ pkgs , dotfiles , ... }: {
+{ pkgs , dotfiles , lib , ... }: {
 
 	home.username = "maximilian";
 	home.homeDirectory = "/home/maximilian";
@@ -30,5 +30,7 @@
 
 	xdg.configFile."niri".source = dotfiles + "/niri";
 	xdg.configFile."nvim".source = dotfiles + "/nvim";
-	xdg.configFile."noctalia".source = dotfiles + "/noctalia";
+	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  ln -sfn /etc/nixos/dotfiles/noctalia/ $HOME/.config/noctalia
+  '';
 }
