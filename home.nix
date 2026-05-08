@@ -7,7 +7,7 @@
 
 	programs.git = {
     	  enable = true;
-	  setting = {
+	  settings = {
 		user = {
         		name  = "kadsendino";
         		email = "mail@kadsendino.org";
