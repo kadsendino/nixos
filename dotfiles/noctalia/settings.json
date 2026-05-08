@@ -44,7 +44,7 @@
         "autoHideDelay": 500,
         "autoShowDelay": 150,
         "backgroundOpacity": 0.3,
-        "barType": "simple",
+        "barType": "framed",
         "capsuleColorKey": "none",
         "capsuleOpacity": 0.5,
         "contentPadding": 2,
@@ -190,7 +190,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic",
+                    "displayMode": "icon-hover",
                     "hideIfIdle": true,
                     "hideIfNotDetected": false,
                     "id": "Battery",
@@ -220,8 +220,8 @@
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "noctalia",
+                    "enableColorization": true,
+                    "icon": "snowflake",
                     "id": "ControlCenter",
                     "useDistroLogo": false
                 }
@@ -701,9 +701,9 @@
     "ui": {
         "boxBorderEnabled": true,
         "fontDefault": "Nimbus Sans",
-        "fontDefaultScale": 0.97,
+        "fontDefaultScale": 1,
         "fontFixed": "Adwaita Mono",
-        "fontFixedScale": 0.97,
+        "fontFixedScale": 0.8,
         "panelBackgroundOpacity": 0.9,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
