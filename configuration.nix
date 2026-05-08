@@ -5,16 +5,11 @@
 { config, pkgs, inputs , ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/locale.nix
       ./packages/system_packages.nix
-      ./packages/user_packages.nix
     ];
 
   # Bootloader.
@@ -41,6 +36,7 @@
   # Enable Wayland
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Niri
   programs.niri.enable = true;
@@ -62,6 +58,8 @@
   services.openssh.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
+
+  networking.firewall.allowedTCPPorts = [ 57621 ];
 
 
   # This value determines the NixOS release from which the default

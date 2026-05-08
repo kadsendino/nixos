@@ -13,6 +13,15 @@
     spotify
   ];
 
+  xdg.desktopEntries.spotify = {
+    name = "Spotify";
+    exec = "spotify --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
+    icon = "spotify-client";
+    type = "Application";
+    categories = [ "Audio" "Music" "Player" "AudioVideo" ];
+    mimeType = [ "x-scheme-handler/spotify" ];
+  };
+
 
 	programs.git = {
     enable = true;
