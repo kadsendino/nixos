@@ -35,6 +35,11 @@
       viAlias = true;
       vimAlias = true;
   };
+  
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
 
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
   mkdir -p $HOME/Schreibtisch
