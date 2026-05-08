@@ -57,9 +57,6 @@
     isNormalUser = true;
     description = "Maximilian";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      spotify
-    ];
   };
 
   # Allow unfree packages
@@ -71,17 +68,22 @@
 
   # Niri
   programs.niri.enable = true;
+  
+  programs.nix-ld.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   vim
   gcc
-  neovim
+  # neovim
   alacritty
   kitty
   fish
+  fzf
+  lua
   git
+  wl-clipboard
   chromium
   firefox
   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
