@@ -4,10 +4,6 @@
 	home.username = "maximilian";
 	home.homeDirectory = "/home/maximilian";
 	home.stateVersion = "25.11";
-  home.packages = with pkgs; [
-    freetube
-  ];
-
 
 	programs.git = {
     enable = true;
@@ -25,7 +21,7 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-    };
+  };
 
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
   ln -sfn /etc/nixos/ $HOME/nixos
