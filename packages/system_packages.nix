@@ -14,8 +14,10 @@
   fzf
   lua
   git
+  gnumake
   wl-clipboard
   chromium
+  nautilus
   firefox
   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

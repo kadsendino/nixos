@@ -43,12 +43,12 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.3,
-        "barType": "framed",
+        "backgroundOpacity": 0.8,
+        "barType": "floating",
         "capsuleColorKey": "none",
         "capsuleOpacity": 0.5,
         "contentPadding": 2,
-        "density": "spacious",
+        "density": "comfortable",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
         "fontScale": 1,
@@ -105,14 +105,14 @@
             ],
             "left": [
                 {
+                    "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "zeppelin",
-                    "iconColor": "none",
-                    "id": "Launcher",
-                    "useDistroLogo": false
+                    "enableColorization": true,
+                    "icon": "snowflake",
+                    "id": "ControlCenter",
+                    "useDistroLogo": true
                 },
                 {
                     "clockColor": "none",
@@ -216,13 +216,13 @@
                     "id": "WallpaperSelector"
                 },
                 {
-                    "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": true,
-                    "icon": "snowflake",
-                    "id": "ControlCenter",
+                    "enableColorization": false,
+                    "icon": "zeppelin",
+                    "iconColor": "none",
+                    "id": "Launcher",
                     "useDistroLogo": false
                 }
             ]
@@ -257,7 +257,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Rose Pine",
+        "predefinedScheme": "Catppuccin Lavender",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false

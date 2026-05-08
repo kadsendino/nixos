@@ -25,6 +25,10 @@
   hardware.bluetooth.enable = true;
   services.upower.enable = true;
 
+  # usb drives
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.maximilian = {
     isNormalUser = true;

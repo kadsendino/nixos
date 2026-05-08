@@ -37,6 +37,9 @@
   };
 
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  mkdir -p $HOME/Schreibtisch
+  mkdir -p $HOME/Dokumente
+  mkdir -p $HOME/Downloads
   mkdir -p $HOME/Bilder
   mkdir -p $HOME/.config
 

@@ -7,6 +7,10 @@
   home.packages = with pkgs; [
     freetube
     spotify
+    telegram-desktop
+    signal-desktop
+    cinny-desktop 
+    texliveFull
   ];
 
 }
