@@ -65,6 +65,9 @@
 
   networking.firewall.allowedTCPPorts = [ 57621 ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.sauce-code-pro
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

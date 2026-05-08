@@ -19,6 +19,7 @@
   chromium
   nautilus
   zathura
+  zathuraPkgs.zathura_pdf_mupdf
   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
