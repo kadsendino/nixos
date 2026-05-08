@@ -17,7 +17,7 @@
 		};
 	};
 
-	outputs = { self , nixpkgs , home-manager , ... }: {
+	outputs = inputs@{ self , nixpkgs , home-manager , ... }: {
 		nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -25,8 +25,12 @@
 				home-manager.nixosModules.home-manager
 				{
 					home-manager.users.maximilian = import ./home.nix;
+					home-manager.extraSpecialArgs = {
+						dotfiles = ./dotfiles;
+					};
 				}
 			];
+			specialArgs = { inherit inputs; };
 		};
 	};
 

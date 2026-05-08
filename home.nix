@@ -1,5 +1,5 @@
 
-{ pkgs , ... }: {
+{ pkgs , dotfiles , ... }: {
 
 	home.username = "maximilian";
 	home.homeDirectory = "/home/maximilian";
@@ -15,5 +15,7 @@
 	  };
 
 	};
+
+	xdg.configFile."niri".source = dotfiles + "/niri";
 
 }
