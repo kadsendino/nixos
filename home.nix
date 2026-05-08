@@ -1,17 +1,12 @@
 
 { pkgs , dotfiles , lib , ... }: {
+  imports = [
+    ./packages/user_pckages.nix
+  ];
 
 	home.username = "maximilian";
 	home.homeDirectory = "/home/maximilian";
 	home.stateVersion = "25.11";
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
-    freetube
-    spotify
-  ];
 
   xdg.desktopEntries.spotify = {
     name = "Spotify";
