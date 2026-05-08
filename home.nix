@@ -18,4 +18,5 @@
 
 
 	xdg.configFile."niri".source = dotfiles + "/niri";
+	xdg.configFile."nvim".source = dotfiles + "/nvim";
 }
