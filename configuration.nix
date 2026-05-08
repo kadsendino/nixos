@@ -58,6 +58,7 @@
     description = "Maximilian";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      spotify
     ];
   };
 
@@ -74,7 +75,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim 
+  vim
+  gcc
   neovim
   alacritty
   kitty
