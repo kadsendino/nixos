@@ -330,11 +330,7 @@ animations {
 
 // Open Chromium maximized
 window-rule {
-    match app-id=r#"chromium$"#
-    open-maximized true
-}
-
-window-rule {
+    match app-id="chromium-browser"
     match app-id="freetube"
     open-maximized true
 }
