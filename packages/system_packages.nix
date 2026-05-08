@@ -14,6 +14,7 @@
   fzf
   lua
   git
+  cargo
   gnumake
   wl-clipboard
   chromium
