@@ -27,10 +27,9 @@
       vimAlias = true;
     };
 
-
-	xdg.configFile."niri".source = dotfiles + "/niri";
-	xdg.configFile."nvim".source = dotfiles + "/nvim";
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
   ln -sfn /etc/nixos/dotfiles/noctalia/ $HOME/.config/noctalia
+  ln -sfn /etc/nixos/dotfiles/niri/ $HOME/.config/niri
+  ln -sfn /etc/nixos/dotfiles/nvim/ $HOME/.config/nvim
   '';
 }
