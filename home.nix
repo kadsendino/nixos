@@ -37,6 +37,9 @@
   };
 
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  mkdir -p $HOME/Bilder
+  mkdir -p $HOME/.config
+
   ln -sfn /etc/nixos/ $HOME/nixos
   ln -sfn /etc/nixos/dotfiles/wallpaper/ $HOME/Bilder/wallpaper
   ln -sfn /etc/nixos/dotfiles/noctalia/ $HOME/.config/noctalia
