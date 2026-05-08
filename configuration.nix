@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/locale.nix
+      ./packages/system_packages.nix
     ];
 
   # Bootloader.
