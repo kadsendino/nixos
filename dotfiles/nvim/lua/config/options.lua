@@ -121,5 +121,14 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
+-- Rechtschreibprüfung für bestimmte Dateitypen
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "markdown", "text", "gitcommit" },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = "de,en" -- Deutsch + Englisch gleichzeitig
+  end,
+})
+
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

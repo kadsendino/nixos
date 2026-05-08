@@ -23,6 +23,11 @@ vim.api.nvim_set_keymap("n", "<leader>8", ':exe 8 .. "wincmd w"<CR>', { noremap 
 vim.api.nvim_set_keymap("n", "<leader>9", ':exe 9 .. "wincmd w"<CR>', { noremap = true })
 --vim.api.nvim_set_keymap("n", "<leader>", ':exe 10 .. "wincmd w"<CR>', { noremap = true })
 
+-- search and replace
+vim.api.nvim_set_keymap("n", "<leader>mm", ":Match<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>mw", ":MatchWord<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>m", ":MatchLine<CR>", { noremap = true })
+
 --Copy Text of whole File
 vim.api.nvim_set_keymap("n", "y+", ":%y<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "d+", ":%d<CR>", { noremap = true })
@@ -30,20 +35,4 @@ vim.api.nvim_set_keymap("n", "d+", ":%d<CR>", { noremap = true })
 --Remove leftover spaces
 vim.api.nvim_set_keymap("n", "<leader>sz", ":%s/\\s\\+$//<CR>", { noremap = true })
 
--- Right click menu support
-vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
-  require("menu.utils").delete_old_menus()
-
-  vim.cmd.exec('"normal! \\<RightMouse>"')
-
-  local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
-  local ft = vim.bo[buf].ft
-
-  local menu = (ft == "neo-tree") and "neo-tree" or "default"
-
-  require("menu").open(menu, { mouse = true })
-end, {})
-
-vim.keymap.set("n", "<C-n>", function()
-  require("menu").open("neo-tree")
-end, {})
+vim.api.nvim_set_keymap("n", "<leader>ä", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true })
