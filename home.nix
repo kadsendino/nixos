@@ -6,15 +6,16 @@
 	home.stateVersion = "25.11";
 
 	programs.git = {
-	  enable = true;
-	  userName = "kadsendino";
-	  userEmail = "mail@kadsendino.org";
-
-	  extraConfig = {
-	    init.defaultBranch = "main";
+    	  enable = true;
+	  setting = {
+		user = {
+        		name  = "kadsendino";
+        		email = "mail@kadsendino.org";
+		};
+	  	init.defaultBranch = "main";
 	  };
+    	};
 
-	};
 
 	xdg.configFile."niri".source = dotfiles + "/niri";
 }
