@@ -5,6 +5,15 @@
 	home.homeDirectory = "/home/maximilian";
 	home.stateVersion = "25.11";
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  home.packages = with pkgs; [
+    freetube
+    spotify
+  ];
+
+
 	programs.git = {
     enable = true;
 	  settings = {
