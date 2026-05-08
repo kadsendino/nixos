@@ -9,7 +9,7 @@
     spotify
     telegram-desktop
     signal-desktop
-    cinny-desktop 
+    xournalpp
     texliveFull
   ];
 
