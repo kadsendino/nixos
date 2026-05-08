@@ -45,5 +45,6 @@
   ln -sfn /etc/nixos/dotfiles/noctalia/ $HOME/.config/noctalia
   ln -sfn /etc/nixos/dotfiles/niri/ $HOME/.config/niri
   ln -sfn /etc/nixos/dotfiles/nvim/ $HOME/.config/nvim
+  ln -sfn /etc/nixos/dotfiles/kitty/ $HOME/.config/kitty
   '';
 }
