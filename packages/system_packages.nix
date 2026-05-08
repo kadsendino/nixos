@@ -18,7 +18,7 @@
   wl-clipboard
   chromium
   nautilus
-  firefox
+  zathura
   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
