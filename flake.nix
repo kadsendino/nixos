@@ -45,6 +45,7 @@
 
           home-manager.extraSpecialArgs = {
             dotfiles = ./dotfiles;
+            inherit unstable;
           };
         }
       ];

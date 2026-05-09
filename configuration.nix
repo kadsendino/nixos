@@ -2,13 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs , lib , ... }:
+{ config, pkgs, inputs , ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/locale.nix
+      ./modules/services.nix
+      ./modules/games.nix
+      ./modules/fonts.nix
       ./packages/system_packages.nix
     ];
 
@@ -16,18 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # boot.initrd.luks.devices."luks-dfcefe7e-924c-4246-ae69-f71e56caa710".device = "/dev/disk/by-uuid/dfcefe7e-924c-4246-ae69-f71e56caa710";
   networking.hostName = "nix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
-  services.upower.enable = true;
-
-  # usb drives
-  services.udisks2.enable = true;
-  services.gvfs.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.maximilian = {
@@ -37,7 +29,7 @@
   };
 
 
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
   # Enable Wayland
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = true;
@@ -48,20 +40,6 @@
   
   programs.nix-ld.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-unwrapped"
-    "steam-run"
-  ];
-
-  programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };  
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -70,22 +48,15 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   networking.firewall.allowedTCPPorts = [ 57621 ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.sauce-code-pro
-  ];
-
   environment.variables = {
     PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
   };
+
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
