@@ -37,6 +37,7 @@
   };
 
 
+  services.xserver.enable = true;
   # Enable Wayland
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = true;
@@ -69,6 +70,9 @@
     nerd-fonts.sauce-code-pro
   ];
 
+  environment.variables = {
+    PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

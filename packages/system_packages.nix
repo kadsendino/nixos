@@ -1,5 +1,5 @@
 
-{ pkgs , inputs , ... }:
+{ pkgs , inputs , unstable , ... }:
 
 {
   # List packages installed in system profile. To search, run:
@@ -16,11 +16,13 @@
   git
   cargo
   gnumake
+  cmake
   wl-clipboard
   chromium
   nautilus
   zathura
   zathuraPkgs.zathura_pdf_mupdf
-  inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+  unstable.neovim
+  unstable.noctalia-shell
   ];
 }
