@@ -52,6 +52,8 @@
 
   environment.variables = {
     PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "24";
   };
 
 

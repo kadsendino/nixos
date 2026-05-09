@@ -120,7 +120,6 @@ output "DP-1" {
     mode "2560x1440@120.000"
 }
 
-// Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
@@ -337,7 +336,7 @@ window-rule {
 
 window-rule {
     match app-id="kitty"
-    opacity 0.8
+    // opacity 0.8
     draw-border-with-background false
 }
 

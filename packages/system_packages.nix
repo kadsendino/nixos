@@ -23,6 +23,7 @@
 
   # File Exploerer
   nautilus
+  yazi
 
   #Neovim/Vim
   vim
@@ -30,6 +31,7 @@
   fd fzf
 
   #Niri
+  adwaita-icon-theme
   wl-clipboard
   xwayland-satellite
   kitty
