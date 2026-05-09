@@ -9,6 +9,7 @@
   lua
   git
   cargo
+  rust-analyzer
   gcc
   gnumake
   cmake
