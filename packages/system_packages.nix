@@ -7,7 +7,7 @@
   environment.systemPackages = with pkgs; [
   vim
   gcc
-  # neovim
+  fd
   alacritty
   kitty
   fish
@@ -20,6 +20,7 @@
   wl-clipboard
   chromium
   nautilus
+  xwayland-satellite
   zathura
   zathuraPkgs.zathura_pdf_mupdf
   unstable.neovim
