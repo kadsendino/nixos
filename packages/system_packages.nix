@@ -5,25 +5,36 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim
-  gcc
-  fd
-  alacritty
-  kitty
-  fish
-  fzf
+  #Dev/System 
   lua
   git
   cargo
+  gcc
   gnumake
   cmake
-  wl-clipboard
+
+  #Browser
   chromium
-  nautilus
-  xwayland-satellite
+
+  #Everything for PDF
   zathura
   zathuraPkgs.zathura_pdf_mupdf
+
+  # File Exploerer
+  nautilus
+
+  #Neovim/Vim
+  vim
   unstable.neovim
+  fd fzf
+
+  #Niri
+  wl-clipboard
+  xwayland-satellite
+  kitty
+  fish
+
+  #Noctalia
   unstable.noctalia-shell
   ];
 }

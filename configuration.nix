@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nix"; # Define your hostname.
+  networking.hostName = "nix";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.maximilian = {
@@ -28,8 +28,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-
-  # services.xserver.enable = true;
   # Enable Wayland
   services.displayManager.gdm.enable = true;
   services.displayManager.gdm.wayland = true;
@@ -40,13 +38,13 @@
   
   programs.nix-ld.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  # # Some programs need SUID wrappers, can be configured further or are
+  # # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
