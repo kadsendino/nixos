@@ -9,6 +9,7 @@
     freetube
     spotify
     flakes.spotify-visualizer.packages.${system}.default
+    cava
 
     #Messenger
     telegram-desktop
