@@ -6,6 +6,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #Dev/System 
+  python315
   lua
   git
   cargo
@@ -29,6 +30,7 @@
   vim
   unstable.neovim
   fd fzf
+  markdownlint-cli2
 
   #Niri
   adwaita-icon-theme

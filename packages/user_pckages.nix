@@ -14,6 +14,7 @@
     signal-desktop
 
     #PDF/Latex
+    gnumeric
     xournalpp
     texliveFull
   ];

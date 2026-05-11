@@ -17,7 +17,6 @@
     mimeType = [ "x-scheme-handler/spotify" ];
   };
 
-
 	programs.git = {
     enable = true;
 	  settings = {
@@ -27,11 +26,6 @@
 		};
 	  	init.defaultBranch = "main";
 	  };
-  };
-
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
 	home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
