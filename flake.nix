@@ -4,13 +4,16 @@
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    spotify-visualizer.url = "github:kadsendino/spotify-visualizer";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable , home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable , home-manager, spotify-visualizer , ... }:
   let
     system = "x86_64-linux";
 
@@ -21,6 +24,11 @@
     unstable = import nixpkgs-unstable {
       inherit system;
     };
+
+    flakes = {
+      inherit spotify-visualizer;
+    };
+
   in {
     nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -35,7 +43,7 @@
 
           home-manager.extraSpecialArgs = {
             dotfiles = ./dotfiles;
-            inherit unstable;
+            inherit unstable flakes system;
           };
         }
       ];
@@ -50,6 +58,7 @@
         rust-analyzer
         cmake
         pkg-config
+        fontconfig
 
         clang
         llvmPackages_18.libclang
@@ -71,6 +80,7 @@
 
       shellHook = ''
         export LIBCLANG_PATH="${pkgs.llvmPackages_18.libclang.lib}/lib"
+        exec fish
       '';
 
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [

@@ -1,4 +1,4 @@
-{ pkgs , unstable , ... }:
+{ pkgs , unstable , flakes , ... }:
 
 {
   # Allow unfree packages
@@ -8,6 +8,7 @@
     #Media
     freetube
     spotify
+    flakes.spotify-visualizer.packages.${system}.default
 
     #Messenger
     telegram-desktop

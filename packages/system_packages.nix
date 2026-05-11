@@ -15,6 +15,9 @@
   gnumake
   cmake
 
+  playerctl
+
+
   #Browser
   chromium
 
