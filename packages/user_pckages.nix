@@ -10,6 +10,7 @@
     spotify
     flakes.spotify-visualizer.packages.${system}.default
     cava
+    pipes
 
     #Messenger
     telegram-desktop
