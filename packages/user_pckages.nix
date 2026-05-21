@@ -6,11 +6,14 @@
 
   home.packages = with pkgs; [
     #Media
+    ungoogled-chromium
     freetube
     spotify
     flakes.spotify-visualizer.packages.${system}.default
     cava
     pipes
+
+    protonvpn-gui
 
     #Messenger
     telegram-desktop

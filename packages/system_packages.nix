@@ -6,7 +6,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #Dev/System 
-  python315
+  python313
   lua
   git
   cargo
@@ -16,7 +16,7 @@
   cmake
 
   playerctl
-
+  libinput
 
   #Browser
   chromium

@@ -38,6 +38,13 @@
   
   programs.nix-ld.enable = true;
 
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/etc/nixos";
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    dates = "daily";  # or "daily"
+  };
+
   # # Some programs need SUID wrappers, can be configured further or are
   # # started in user sessions.
   # programs.mtr.enable = true;

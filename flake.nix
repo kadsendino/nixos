@@ -59,6 +59,8 @@
         cmake
         pkg-config
         fontconfig
+        gfortran
+        openblas
 
         clang
         llvmPackages_18.libclang
@@ -76,10 +78,15 @@
         xorg.libXi
         xorg.libXrandr
         xorg.libXinerama
+
+        python313
+        python313Packages.scipy
+        python313Packages.numpy
       ];
 
       shellHook = ''
         export LIBCLANG_PATH="${pkgs.llvmPackages_18.libclang.lib}/lib"
+        export PKG_CONFIG_PATH="${pkgs.openblas}/lib/pkgconfig:${pkgs.gfortran.cc}/lib/pkgconfig''${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
         exec fish
       '';
 

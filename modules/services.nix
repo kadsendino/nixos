@@ -5,7 +5,13 @@
   
   # networking
   networking.networkmanager.enable = true;
+  
+  services.gnome.gnome-keyring.enable = true;
 
+  programs.nm-applet.enable = true;
+
+  security.polkit.enable = true;
+  
   # bluetooth
   hardware.bluetooth.enable = true;
   
