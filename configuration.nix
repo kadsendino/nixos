@@ -45,6 +45,13 @@
     dates = "daily";  # or "daily"
   };
 
+  systemd.services.nixos-upgrade.environment = {
+    GIT_AUTHOR_NAME = "NixOS Auto-upgrade";
+    GIT_AUTHOR_EMAIL = "root@&lt;nix&gt;";
+    GIT_COMMITTER_NAME = "NixOS Auto-upgrade";
+    GIT_COMMITTER_EMAIL = "root@&lt;nix&gt;";
+  };
+
   # # Some programs need SUID wrappers, can be configured further or are
   # # started in user sessions.
   # programs.mtr.enable = true;
