@@ -41,7 +41,10 @@
   system.autoUpgrade = {
     enable = true;
     flake = "/etc/nixos";
-    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    flags = [ 
+      "--print-build-logs"
+      "--commit-lock-file" 
+      ];
     dates = "daily";  # or "daily"
   };
 
