@@ -6,10 +6,13 @@ pkgs.mkShell {
     rustfmt
     clippy
     rust-analyzer
+    pkg-config
+    fontconfig
   ];
   RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
   shellHook = ''
-    exec fish
-    echo "🦀 Rust $(rustc --version)"
+    exec fish --init-command '
+      echo "🦀 Rust $(rustc --version)"
+    '
   '';
 }

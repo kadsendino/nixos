@@ -63,7 +63,7 @@
 
 
     # Dev shells — exposed globally
-    devShells.${system} = {
+    devShells.${hostPlatform} = {
       python = import ./environments/python.nix { inherit pkgs; };
       rust   = import ./environments/rust.nix   { inherit pkgs; };
     };

@@ -8,7 +8,8 @@ pkgs.mkShell {
     pyright
   ];
   shellHook = ''
-    exec fish
-    echo "🐍 Python $(python --version)"
+    exec fish --init-command '
+      echo "🐍 Python $(python --version)"
+    '
   '';
 }
