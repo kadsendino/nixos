@@ -61,50 +61,56 @@
       };
     };
 
-    devShells.${hostPlatform}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        rustc
-        cargo
-        rust-analyzer
-        cmake
-        pkg-config
-        fontconfig
-        gfortran
-        openblas
 
-        clang
-        llvmPackages_18.libclang
-
-        mesa
-        libGL
-        glfw
-
-        wayland
-        wayland-protocols
-        libxkbcommon
-
-        xorg.libX11
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXrandr
-        xorg.libXinerama
-
-        python313
-        python313Packages.scipy
-        python313Packages.numpy
-      ];
-
-      shellHook = ''
-        export LIBCLANG_PATH="${pkgs.llvmPackages_18.libclang.lib}/lib"
-        export PKG_CONFIG_PATH="${pkgs.openblas}/lib/pkgconfig:${pkgs.gfortran.cc}/lib/pkgconfig''${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
-        exec fish
-      '';
-
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
-        pkgs.libGL
-        pkgs.glfw
-        pkgs.llvmPackages_18.libclang
-      ];
+    # Dev shells — exposed globally
+    devShells.${system} = {
+      python = import ./environments/python.nix { inherit pkgs; };
+      rust   = import ./environments/rust.nix   { inherit pkgs; };
     };
+  #   devShells.${hostPlatform}.default = pkgs.mkShell {
+  #     packages = with pkgs; [
+  #       rustc
+  #       cargo
+  #       rust-analyzer
+  #       cmake
+  #       pkg-config
+  #       fontconfig
+  #       gfortran
+  #       openblas
+  #
+  #       clang
+  #       llvmPackages_18.libclang
+  #
+  #       mesa
+  #       libGL
+  #       glfw
+  #
+  #       wayland
+  #       wayland-protocols
+  #       libxkbcommon
+  #
+  #       xorg.libX11
+  #       xorg.libXcursor
+  #       xorg.libXi
+  #       xorg.libXrandr
+  #       xorg.libXinerama
+  #
+  #       python313
+  #       python313Packages.scipy
+  #       python313Packages.numpy
+  #     ];
+  #
+  #     shellHook = ''
+  #       export LIBCLANG_PATH="${pkgs.llvmPackages_18.libclang.lib}/lib"
+  #       export PKG_CONFIG_PATH="${pkgs.openblas}/lib/pkgconfig:${pkgs.gfortran.cc}/lib/pkgconfig''${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+  #       exec fish
+  #     '';
+  #
+  #     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+  #       pkgs.libGL
+  #       pkgs.glfw
+  #       pkgs.llvmPackages_18.libclang
+  #     ];
+  #   };
   };
 }
