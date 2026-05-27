@@ -19,7 +19,7 @@
   libinput
 
   #Browser
-  # chromium
+  firefox
 
   #Everything for PDF
   zathura

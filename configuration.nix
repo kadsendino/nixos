@@ -38,6 +38,7 @@
   
   programs.nix-ld.enable = true;
 
+  #Auto Update
   system.autoUpgrade = {
     enable = true;
     flake = "/etc/nixos";
@@ -46,6 +47,13 @@
       "--commit-lock-file" 
       ];
     dates = "daily";  # or "daily"
+  };
+
+  #Auto Garbage Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
   systemd.services.nixos-upgrade.environment = {

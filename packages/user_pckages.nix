@@ -13,6 +13,9 @@
     cava
     pipes
 
+    #Gaming
+    rpcs3
+
     protonvpn-gui
 
     #Messenger

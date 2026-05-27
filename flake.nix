@@ -10,19 +10,25 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable , home-manager, spotify-visualizer , ... }:
+  outputs = inputs@{
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    spotify-visualizer,
+    ...
+  }:
   let
-    system = "x86_64-linux";
+    hostPlatform = "x86_64-linux";
 
     pkgs = import nixpkgs {
-      inherit system;
+      system = hostPlatform;
     };
 
     unstable = import nixpkgs-unstable {
-      inherit system;
+      system = hostPlatform;
     };
 
     flakes = {
@@ -31,9 +37,11 @@
 
   in {
     nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
-      inherit system;
-
       modules = [
+        {
+          nixpkgs.hostPlatform = hostPlatform;
+        }
+
         ./configuration.nix
 
         home-manager.nixosModules.home-manager
@@ -43,15 +51,17 @@
 
           home-manager.extraSpecialArgs = {
             dotfiles = ./dotfiles;
-            inherit unstable flakes system;
+            inherit unstable flakes hostPlatform;
           };
         }
       ];
 
-      specialArgs = { inherit inputs unstable; };
+      specialArgs = {
+        inherit inputs unstable hostPlatform;
+      };
     };
 
-    devShells.${system}.default = pkgs.mkShell {
+    devShells.${hostPlatform}.default = pkgs.mkShell {
       packages = with pkgs; [
         rustc
         cargo
