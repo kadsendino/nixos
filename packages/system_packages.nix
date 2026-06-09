@@ -14,6 +14,7 @@
   gcc
   gnumake
   cmake
+  scala
 
   playerctl
   libinput
@@ -33,6 +34,7 @@
   vim
   unstable.neovim
   fd fzf
+  harper
   markdownlint-cli2
 
   #Niri
